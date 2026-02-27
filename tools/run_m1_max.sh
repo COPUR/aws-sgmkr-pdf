@@ -4,7 +4,12 @@ set -euo pipefail
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd -- "${SCRIPT_DIR}/.." && pwd)"
 
-INPUT_PDF="${1:-${REPO_ROOT}/pdfs/sagemaker-dg-8318.pdf}"
+DEFAULT_INPUT="${HOME}/Desktop/sagemaker-dg-8318.pdf"
+if [[ ! -f "${DEFAULT_INPUT}" && -f "${REPO_ROOT}/pdfs/sagemaker-dg-8318.pdf" ]]; then
+  DEFAULT_INPUT="${REPO_ROOT}/pdfs/sagemaker-dg-8318.pdf"
+fi
+
+INPUT_PDF="${1:-${DEFAULT_INPUT}}"
 OUTPUT_DIR="${2:-${REPO_ROOT}/ml-output}"
 
 if [[ ! -f "${INPUT_PDF}" ]]; then

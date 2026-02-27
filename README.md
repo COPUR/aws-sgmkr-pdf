@@ -8,9 +8,9 @@ This repo converts large PDF docs into machine-learning-friendly assets:
 
 The markdown includes references to the extracted images so text and diagrams stay connected.
 
-## Included Sample PDF
+## Input PDFs
 
-- `pdfs/sagemaker-dg-8318.pdf` (tracked with Git LFS)
+PDF source files are expected to stay local (for example on `~/Desktop`) and are not committed to this repository.
 
 ## Setup
 
@@ -72,7 +72,7 @@ For each PDF `<name>.pdf`, the script writes:
 
 ## Notes
 
-- Large PDFs in this repo are stored via Git LFS.
+- This repository does not push PDF source files.
 - Tune diagram extraction sensitivity with:
   - `--min-image-width`
   - `--min-image-height`
